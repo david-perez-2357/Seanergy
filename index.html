@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio</title>
+    <link rel="icon" href="imagenes/logo.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos/animaciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+    <style>
+        .blur.modal.fade.show {
+            backdrop-filter: blur(5px);
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0" style="z-index: 1000;">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex gap-3 align-items-center col-xs-12" href="index.html">
+          <div class="col-sm-4">
+            <img src="imagenes/logo.png" alt="logo" class="img-fluid float-end" style="height: 40px;">
+          </div>
+          <div class="col-sm-8">
+            <img src="imagenes/nombre_marca.png" alt="" class="img-fluid " style="height: 30px;">
+          </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse ps-3" id="navbarNav">
+          <ul class="navbar-nav gap-3 w-100">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="informacion.html">Sobre nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="informacion.html#cantidadDonada">Donar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="planes.html">Planes</a>
+            </li>
+            <li class="nav-item ms-auto">
+              <div class="dropdown">
+                <input class="btn btn-info rounded-4 iniciar_sesion" type="button" value="Iniciar sesión" style="color:white" data-bs-toggle="modal" data-bs-target="#loginModal">
+
+                <ul class="dropdown-menu ">
+                  <li><a class="dropdown-item cerrar_sesion" href="#">Cerrar sesión</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+
+    <div class="card mt-5 m-auto p-4 mb-5" style="width: 90%;">
+      <div class="row d-flex g-2">
+        <div class="col-lg-6">
+          <h1 class="fs-3 titulo">¡Bienvenido de nuevo David!</h1>
+          <h3 class="text-body-tertiary fs-6" id="fechaActual">Hoy es /fecha/</h3>
+        </div>
+
+        <div class="col-lg-4 justify-content-center align-items-center d-flex">
+          <select class="form-select" aria-label="Select Months" id="selectMeses">
+          </select>
+        </div>
+
+        <div class="col-lg-2 d-flex align-items-center pt-lg-0 pt-2">
+              <a href="factura.html" class="btn btn-info w-100 w-lg-auto text-white h-auto">Ver facturas</a>
+        </div>
+        
+      </div>
+        
+
+        <div class="row m-0 mt-4 g-3">
+            <div class="col-lg-3 p-4 water text-white fs-4 text-center d-flex align-items-center justify-content-center fw-semibold" id="tituloMes" style="min-height: 100px;">
+                Este mes de mes 2024
+            </div>
+            
+            <div class="col-lg-7 d-grid gap-3 " style="grid-template-columns: 1fr 1fr;grid-template-rows: 1fr 1fr;">
+                <div class="bg-secondary-subtle gap-1 rounded-3 flex-wrap fs-6 text-center d-flex align-items-center justify-content-center p-2 h-100 w-100" >
+                    <b id="kWhGenerado" class="counter">0</b>kWh generado
+                </div>
+
+                <div class="bg-secondary-subtle gap-1 rounded-3 flex-wrap fs-6 text-center d-flex align-items-center justify-content-center p-2 h-100 w-100">
+                  <b id="dineroGastado" class="counter">0</b>€ totales
+                </div>
+
+                <div class="bg-secondary-subtle gap-1 flex-wrap rounded-3 fs-6 text-center d-flex align-items-center justify-content-center p-2 h-100 w-100">
+                  <b id="diaConsumoMaximo">1/2/2024</b>consumo máximo
+                </div>
+
+                <div class="bg-secondary-subtle rounded-3 flex-wrap gap-1 fs-6 text-center d-flex align-items-center p-2 justify-content-center h-100 w-100">
+                  <b id="kWhAhorrado" class="counter">0</b>€ ahorrado
+                </div>
+
+                
+            </div>
+
+            <button data-bs-toggle="modal" data-bs-target="#modalMes" class="col-lg-2 bg-secondary-subtle rounded-3 border-0 fs-4 text-center d-flex align-items-center justify-content-center rotate_hover_svg" style="min-height: 50px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-circle-dotted " viewBox="0 0 16 16">
+                    <path d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                  </svg>
+                </button>
+
+        </div>
+
+        
+
+        <div class="card mt-5">
+          <div class="card-header fw-semibold">
+            💡 Sugerencia para ahorrar
+          </div>        
+          <p class="fs-6 p-3 m-0">Aprovecha al máximo tu energía: a partir de las 8 de la tarde, nuestras tarifas son un 50% más económicas. Haz un uso inteligente y ahorra, contribuyendo a un consumo eficiente, planificando tareas que requieran energia ajustandose al horario economico.</p>
+        </div>
+
+        <div class="border-secondary mt-5 position-relative">
+          <div class="position-absolute top-50 start-50 translate-middle card text-center z-2" id="tarjetaPagaMas" style="display: none;min-width: 350px">
+            
+            <div class="card-header">
+              Acceso al gráfico
+            </div>
+
+            <div class="card-body d-flex flex-column align-items-center justify-content-between">
+              <p class="">
+                Para acceder al gráfico de consumo en tiempo real, es necesario actualizar a un plan superior. 
+                ¡Mejora tu experiencia de monitoreo y toma decisiones informadas para optimizar tu consumo eléctrico hoy mismo!
+              </p>
+              <a type="button" class="btn btn-info text-white" href="planes.html">Ver los planes</a>
+            </div>
+            
+          </div>
+          <div class="z-1" id="chartRealTime"></div>
+        </div>
+
+        <div class="border-bottom-0 border-dark-subtle w-100 mt-5"></div>
+
+
+        <h1 class="fs-2 text-info fw-bold mt-5 text-center">Estadísticas anuales</h1>
+
+        <div class="mt-3 row align-items-center border-1 border border-dark-subtle rounded-3 p-3 m-2">
+          
+          <div class="d-flex align-items-center gap-2 fs-5 col-lg-6 justify-content-center">
+              Gastas mas que el 
+            <b class="d-flex align-items-end fs-6"> 
+              <p class="counter fs-5 m-0 " akhi="32" id="comparacion_gastos">0</p> %
+            </b>
+            <p class="m-0 d-md-flex d-none">
+              de los usuarios
+            </p>
+          </div>
+
+          <div class="d-flex align-items-center gap-2 fs-5 col-lg-6 justify-content-center ">
+              Ahorras mas que el 
+            <b class="d-flex align-items-end fs-6"> 
+              <p class="counter fs-5 m-0" akhi="68" id="comparacion_ahorro">0</p> %
+            </b>
+            <p class="m-0 d-md-flex d-none">
+              de los usuarios
+            </p>
+          </div>
+          
+      </div>
+
+        <div id="chartMonths" class="mt-5"></div>
+        
+        <style>
+          #heatmap-container {
+                max-width: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+
+            }
+
+            #chartDaysYear {
+                min-width: 900px;
+                height: 90%;
+            }
+        </style>
+
+        <div id="heatmap-container">
+          <div id="chartDaysYear" class="mt-5"></div>
+        </div>
+        
+
+        
+    </div>
+    
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="w-100 position-fixed bottom-0 z-n1" preserveAspectRatio="xMidYMid slice" style="height: 500px;">
+      <path fill="#000b76" fill-opacity="1" d="M0,96L48,101.3C96,107,192,117,288,117.3C384,117,480,107,576,101.3C672,96,768,96,864,85.3C960,75,1056,53,1152,42.7C1248,32,1344,32,1392,32L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="w-100 position-fixed bottom-0 z-n1" preserveAspectRatio="xMidYMid slice" style="height: 450px;">
+      <path fill="#0099ff" fill-opacity="1" d="M0,64L60,90.7C120,117,240,171,360,165.3C480,160,600,96,720,80C840,64,960,96,1080,122.7C1200,149,1320,171,1380,181.3L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="w-100 position-fixed bottom-0 z-n1" preserveAspectRatio="xMidYMid slice" style="height: 500px;">
+      <path fill="#a2d9ff" fill-opacity="1" d="M0,224L60,234.7C120,245,240,267,360,266.7C480,267,600,245,720,240C840,235,960,245,1080,229.3C1200,213,1320,171,1380,149.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+    </svg>
+
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 w-100 text-center" id="exampleModalLabel">Iniciar sesión</h1>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Usuario:</label>
+                <input type="text" class="form-control" id="user">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Contraseña:</label>
+                <input type="password" class="form-control" id="password">
+              </div>
+            </form>
+            <div class="w-100 d-flex justify-content-center mt-5 gap-3">
+              <button type="button" class="btn btn-info comprobar_sesion" style="color: white;">Adelante</button>
+            </div>
+            
+          </div>
+          <!-- <div class="modal-footer d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-info" style="color: white;">Iniciar Sesión</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade modal-lg blur" id="modalElegirPlan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-center w-100" id="exampleModalLabel">¿Porque contratar Seanergy?</h1>
+          </div>
+          <div class="modal-body row">
+            <img src="imagenes/energia_hidraulica.png" class="img-fluid col-lg-5">
+            <p class="m-0 col-lg-7 text-center d-flex align-items-center p-4 fs-6">Porque esta compañía utiliza energía hidráulica, una fuente renovable y limpia. Al hacerlo, 
+              contribuyes directamente a la protección del medio ambiente al reducir la dependencia de combustibles fósiles. 
+              Seaenergy garantiza un suministro constante y confiable de electricidad, promoviendo un futuro más sostenible y 
+              verde para todos.</p>
+          </div>
+          <div class="modal-footer d-flex justify-content-center gap-3">
+            <a type="button" class="btn btn-secondary text-white" href="informacion.html">Sobre nosotros</a>
+            <a type="button" class="btn btn-info text-white" href="planes.html">Ver los planes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade modal-xl" id="modalMes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Mes de /mes/</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body flex-column d-flex gap-5">
+            <div id="chartDays"></div>
+            <div class="row row-gap-5">
+              <div id="chartHours" class="col-xl-6"></div>
+              <div id="chartWeeks" class="col-xl-6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="javascript/localStorage.js"></script>
+    <script src="javascript/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="javascript/pantalla_usuario.js"></script>
+  </body>
+</html>

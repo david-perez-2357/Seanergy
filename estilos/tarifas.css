@@ -1,0 +1,64 @@
+
+.selected {
+    border: 2px solid black;
+}
+
+/* .panel {
+    position: fixed;
+    height: 100vh;
+    bottom: 0;
+    width: 100px;
+    opacity: 0.8;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+} */
+.panel {
+    position: fixed;
+    height: 65vh;
+    bottom: 15vh;
+    width: 72px;
+    opacity: 0.8;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 2rem 0rem 0rem 2rem;
+}
+
+td, thead th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+[scope="row"] {
+    text-align: start;
+    width: 250px;
+}
+
+
+.check, .cross {
+    width: 20px;
+}
+
+.cross {
+    filter: invert(10%) sepia(92%) saturate(5643%) hue-rotate(358deg) brightness(98%) contrast(111%);
+}
+
+.check {
+    filter: invert(45%) sepia(55%) saturate(2821%) hue-rotate(86deg) brightness(110%) contrast(113%);
+}
+
+.panel>.flecha {
+    font-size: 90px;
+    color: white;
+    transition: ease 0.5s;
+}
+
+.panel:hover .flecha {
+    margin-left: 20px;
+}
+  

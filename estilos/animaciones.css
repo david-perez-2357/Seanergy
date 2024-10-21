@@ -1,0 +1,101 @@
+.contenedor_tarifas {
+    overflow: hidden;
+}
+  
+.tarifa {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: aparecer_abajo 1s forwards;
+}
+
+.panel {
+    animation: aparecer_derecha 0.4s forwards;
+}
+
+@keyframes aparecer_abajo {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes aparecer_derecha {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(0); 
+    }
+}
+
+@keyframes aparecer_izquierda {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(0); 
+    }
+}
+
+.tarifa:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.tarifa:nth-child(3) {
+    animation-delay: 2s; 
+}
+
+.scale_hover {
+    transition: ease 0.2s;
+}
+
+.scale_hover:hover {
+    scale: 1.05;
+}
+
+.rotate_hover_svg>svg{
+    transition: ease 0.3s;
+    
+}
+
+.rotate_hover_svg {
+    cursor: pointer;
+}
+
+.rotate_hover_svg:hover>svg {
+    transform: rotate(180deg);
+}
+
+/* Animacion agua */
+
+.water {
+	background: linear-gradient(45deg, #00b7ff  0%, #58c2ff 100%);
+	animation: morph 6s ease-in-out infinite;
+	border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+} 
+
+@keyframes morph {
+	0% {
+		border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+		background-size: 100% 100%;
+	}
+
+
+    50% {
+		border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+		background-size: 200% 125%;
+	} 
+
+	100% {
+		border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+		background-size: 100% 100%;
+	}
+} 
+
+
+
+
